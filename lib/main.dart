@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'app/modules/main/main_page.dart';
 import 'app/routings/app_pages.dart';
-import 'app/service/api_service.dart';
+import 'app/service/api_service_binding.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,9 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         appBarTheme: const AppBarTheme(),
       ),
-      home: Scaffold(
-        appBar: AppBar(),
-      ),
+      home: const MainPage(),
       initialBinding: ApiServiceBinding(),
       getPages: AppPages.routes,
       debugShowCheckedModeBanner: false,
