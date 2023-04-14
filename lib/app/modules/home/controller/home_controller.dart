@@ -39,4 +39,30 @@ class HomeController extends GetxController {
         return Container();
     }
   }
+
+  int tinyHeightLimit = 100;
+  int tinyLimit = 270;
+  int phoneLimit = 550;
+  int tabletLimit = 800;
+  int largeTabletLimit = 1100;
+
+  bool isTinyheightLimit(BuildContext context) =>
+      MediaQuery.of(context).size.height.obs < tinyHeightLimit;
+
+  bool isTinyLimit(BuildContext context) =>
+      MediaQuery.of(context).size.width.obs < tinyLimit;
+
+  bool isPhone(BuildContext context) =>
+      MediaQuery.of(context).size.width.obs < phoneLimit &&
+      MediaQuery.of(context).size.width.obs >= tinyLimit;
+
+  bool isTablet(BuildContext context) =>
+      MediaQuery.of(context).size.width.obs < tabletLimit &&
+      MediaQuery.of(context).size.width.obs >= phoneLimit;
+
+  bool isLargeTablet(BuildContext context) =>
+      MediaQuery.of(context).size.width.obs >= largeTabletLimit;
+
+  bool isDesktop(BuildContext context) =>
+      MediaQuery.of(context).size.width.obs >= largeTabletLimit;
 }

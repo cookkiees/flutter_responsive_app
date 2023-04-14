@@ -19,7 +19,7 @@ class MenuTabItemWidget extends GetView<MainController> {
   Widget build(BuildContext context) {
     return Container(
       height: 60,
-      width: 140,
+      width: 120,
       decoration: BoxDecoration(
         color: backgroundColor,
         border: Border.all(width: 0.1),
@@ -33,7 +33,9 @@ class MenuTabItemWidget extends GetView<MainController> {
         onPressed: onPressed,
         child: Text(
           title,
-          style: TextStyle(fontSize: 16, color: textColor),
+          maxLines: 1,
+          style: TextStyle(
+              fontSize: 14, color: textColor, overflow: TextOverflow.ellipsis),
         ),
       ),
     );

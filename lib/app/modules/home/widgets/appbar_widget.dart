@@ -16,7 +16,7 @@ class AppbarWidget extends GetView<MainController> {
       () => AppBar(
         elevation: 0,
         backgroundColor: MyColors.light,
-        toolbarHeight: 100,
+        toolbarHeight: controller.isPhone(context) ? 60 : 100,
         leading: (controller.isTablet(context) || controller.isPhone(context))
             ? IconButton(
                 onPressed: () {
