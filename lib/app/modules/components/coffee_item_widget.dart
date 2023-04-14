@@ -28,29 +28,20 @@ class CoffeeItemWidget extends GetView<MainController> {
       widthDesktop = 220;
     }
 
-    double widthLargeTablet;
+    double multiWidth;
 
-    if (MediaQuery.of(context).size.width >= 1000) {
-      widthLargeTablet = 220;
-    } else if (MediaQuery.of(context).size.width >= 800) {
-      widthLargeTablet = 180;
-    } else if (MediaQuery.of(context).size.width >= 700) {
-      widthLargeTablet = 200;
-    } else if (MediaQuery.of(context).size.width >= 600) {
-      widthLargeTablet = 180;
-    } else if (MediaQuery.of(context).size.width >= 500) {
-      widthLargeTablet = 220;
+    if (controller.isTablet(context)) {
+      multiWidth = 243;
     } else if (controller.isPhone(context)) {
-      widthLargeTablet = 160;
+      multiWidth = 180;
     } else {
-      widthLargeTablet = double.infinity;
+      multiWidth = 220;
     }
 
     return Obx(() => Container(
           padding: const EdgeInsets.all(16),
-          height: 360,
-          width:
-              controller.isDesktop(context) ? widthDesktop : widthLargeTablet,
+          height: 400,
+          width: controller.isDesktop(context) ? widthDesktop : multiWidth,
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(24),

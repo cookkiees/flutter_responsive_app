@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_resposive_app/app/modules/home/controller/home_controller.dart';
+import 'package:flutter_resposive_app/app/modules/main/controller/main_controller.dart';
 
 import 'package:get/get.dart';
 import '../../utils/my_colors.dart';
@@ -17,9 +18,11 @@ class HomePage extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return GetBuilder<HomeController>(builder: (controller) {
       return Scaffold(
-        appBar: const PreferredSize(
-          preferredSize: Size(double.infinity, 100),
-          child: AppbarWidget(),
+        appBar: PreferredSize(
+          preferredSize: controller.isPhone(context)
+              ? const Size(double.infinity, 60)
+              : const Size(double.infinity, 100),
+          child: const AppbarWidget(),
         ),
         body: SafeArea(
           child: IndexedStack(
